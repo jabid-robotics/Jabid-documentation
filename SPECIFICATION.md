@@ -16,7 +16,7 @@
 *  Joint 3: Elbow Pitch (0-180°)
 *  Joint 4: Wrist Pitch (0-180°)
 *  Gripper: Parallel Jaw
-*  Target Payload: 500 g
+*  Target Payload: 1500 g
 *  Target Repeatability: ± 1.5 mm
 *  Primary Structure: 3D Printed (PLA/PETG) with metal reinforcement and bearings.
 *  Actuation: Dynamixel XL330-series smart servos (or equivalent with position feedback).
@@ -26,12 +26,12 @@
 **3. Electrical Specification (Target for V1.0)**
 
 *  Main Brain: Raspberry Pi 4/5 (4GB+ recommended).
-*  Real-Time Controller: STM32F4 series microcontroller (e.g., STM32F411 "Black Pill").
+*  Real-Time Controller: STM32F4 series microcontroller (e.g., Nucleo STM32F446).
 *  Power System: 12V DC input, distributed to servos and regulators for 5V (Pi) and 3.3V (STM32, IMU).
 *  Communication:
 *  Pi-to-STM32: UART (Serial).
 *  STM32-to-IMU: I2C.
-*  STM32-to-Servos: UART (Dynamixel protocol).
+*  STM32-to-Servos: UART (Dynamixel protocol) or normal GPIO (if no position feedback).
 *  Wiring: Daisy-chained cabling for power and data.
 
 **V0.1 Approach: Use generic STM32 dev board and soldered perfboard/prototype shield.**
@@ -40,7 +40,7 @@
 
 *  The system uses a layered software architecture to separate high-level planning from real-time control.
 *  Layer	Hardware	Software	Function
-*  High-Level Planning	Raspberry Pi	ROS 2 (Humble)
+*  High-Level Planning	Raspberry Pi	ROS 2 (Jazzy)
 *  *  jabid_ik
    *  jabid_control	Calculates Inverse Kinematics, trajectory planning, user API, and sends joint setpoints to the STM32.
 *  Real-Time Control	STM32F4	Custom Firmware (C/C++)
@@ -54,7 +54,7 @@
 
 **5. Software Specification**
 
-*  Framework: ROS 2 (Humble Hawksbill)
+*  Framework: ROS 2 (Jazzy)
 *  Core Packages:
 *  jabid_description: Contains the URDF model of the arm.
 *  jabid_control: ROS 2 node that manages the serial communication protocol with the STM32.
