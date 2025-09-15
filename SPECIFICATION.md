@@ -19,7 +19,7 @@
 *  Target Payload: 1500 g
 *  Target Repeatability: ± 1.5 mm
 *  Primary Structure: 3D Printed (PLA/PETG) with metal reinforcement and bearings.
-*  Actuation: Dynamixel XL330-series smart servos (or equivalent with position feedback).
+*  Actuation: Dynamixel XL330-series smart servos (or equivalent with position feedback). //  Standard hobby servos (e.g., MG90S) or DC gearmotors.(for v0.1)
 *  Connectors: JST GH for all inter-joint connections.
 *  Sensing: MPU-6050 (or MPU-9250) IMU on key links (forearm, upper arm) for gravity compensation and vibration damping.
 
@@ -31,7 +31,7 @@
 *  Communication:
 *  Pi-to-STM32: UART (Serial).
 *  STM32-to-IMU: I2C.
-*  STM32-to-Servos: UART (Dynamixel protocol) or normal GPIO (if no position feedback).
+*  STM32-to-Servos: UART (Dynamixel protocol) .
 *  Wiring: Daisy-chained cabling for power and data.
 
 **V0.1 Approach: Use generic STM32 dev board and soldered perfboard/prototype shield.**
