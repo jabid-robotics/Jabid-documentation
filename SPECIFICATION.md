@@ -41,10 +41,10 @@
 *  The system uses a layered software architecture to separate high-level planning from real-time control.
 *  Layer	Hardware	Software	Function
 *  High-Level Planning	Raspberry Pi	ROS 2 (Jazzy)
-*  *  jabid_ik
+   *  jabid_ik
    *  jabid_control	Calculates Inverse Kinematics, trajectory planning, user API, and sends joint setpoints to the STM32.
 *  Real-Time Control	STM32F4	Custom Firmware (C/C++)
-*  *  PID Control Loops
+   *  PID Control Loops
    *  Complementary Filter	Executes tight loops for each joint: reads encoders & IMU, calculates PID output, and sends commands to servos. Handles safety.
 *  Hardware Interface	Smart Servos, IMU	Dynamixel SDK, I2C HAL	Provides low-level actuation and sensing.
 *  Key Feature: IMU Integration. The IMU data is fused on the STM32 to provide:
